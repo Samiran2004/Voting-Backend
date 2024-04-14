@@ -1,0 +1,62 @@
+/* ./public/contact.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading styles */
+.heading {
+    margin: 0;
+}
+
+/* Main styles */
+.main {
+    padding: 20px;
+}
+
+/* Section styles */
+.contact-section {
+    margin-bottom: 20px;
+}
+
+/* Contact section styles */
+.contact-section h2 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.contact-section p {
+    margin-bottom: 15px;
+}
+
+.contact-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

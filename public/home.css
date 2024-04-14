@@ -1,0 +1,108 @@
+/* ./public/styles.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading styles */
+.heading {
+    margin: 0;
+}
+
+/* Main styles */
+.main {
+    padding: 20px;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 20px;
+}
+
+/* About Voting in India section styles */
+.about-section {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* Current Polls section styles */
+.current-polls {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Create a New Poll section styles */
+.create-poll form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-poll form label {
+    margin-bottom: 5px;
+}
+
+.create-poll form input[type="text"] {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.create-poll form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-poll form button:hover {
+    background-color: #0056b3;
+}
+/* ./public/styles.css */
+
+/* Button styles */
+.create-poll {
+    margin-bottom: 20px;
+}
+
+.create-poll h2 {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container form {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.button-container button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}

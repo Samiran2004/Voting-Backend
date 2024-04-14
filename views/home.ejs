@@ -1,0 +1,40 @@
+<!-- ./views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting App</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <header class="header">
+        <h1 class="heading">Welcome to the Unique Vote</h1>
+    </header>
+    <main class="main">
+        <section class="about-section">
+            <h2>About Voting in India</h2>
+            <p>Voting is a fundamental right of every Indian citizen. In India, elections are conducted at regular intervals to elect representatives at various levels of government, including the Parliament, state legislative assemblies, and local bodies.</p>
+            <p>The Election Commission of India is responsible for overseeing the entire electoral process, ensuring free and fair elections. Voter registration, candidate nominations, polling, and vote counting are some of the key activities managed by the Election Commission.</p>
+            <p>India follows a system of universal adult suffrage, which means that every citizen above the age of 18 has the right to vote, provided they are registered as voters.</p>
+            <p>Participation in the democratic process by casting your vote is not only a right but also a responsibility. It allows citizens to have a say in the governance of the country and ensures that their voices are heard.</p>
+        </section>
+        
+        <section class="create-poll">
+            <h2>Login or Signup</h2>
+            <div class="button-container">
+                <form action="/user/login" method="get">
+                    <button type="submit">Login</button>
+                </form>
+                <form action="/user/signup" method="get">
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+        </section>        
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>
