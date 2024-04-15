@@ -1,0 +1,52 @@
+/* ./public/error.css */
+
+/* Error container styles */
+.error-container {
+    text-align: center;
+    margin-top: 50px;
+    animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-container h1 {
+    font-size: 2em;
+    color: #FF4136; /* Red color */
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.error-container p {
+    font-size: 1.2em;
+    color: #333; /* Dark grey color */
+    margin-bottom: 20px;
+    animation: slideInUp 1s ease;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
