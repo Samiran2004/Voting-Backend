@@ -93,7 +93,6 @@ const login = async (req, res) => {
         } else {
             //Check is this a valid aadhar number...
             const check = await User.findOne({ addharCardNumber: parseInt(aadhar) });
-            console.log(check);
             if (check) {
                 //Check Password is valid or not...
                 const checkPassword = await bcrypt.compare(password, check.password);
