@@ -98,6 +98,7 @@ const login = async (req, res) => {
                 const checkPassword = await bcrypt.compare(password, check.password);
                 if (checkPassword) {
                     const payload = {
+                        _id: check._id,
                         name: check.name,
                         age: check.age,
                         address: check.address,
@@ -105,7 +106,7 @@ const login = async (req, res) => {
                         isVoted: check.isVoted
                     };
                     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    res.cookie('token', token).render('home');
+                    res.cookie('token', token).render('vote');
                 } else {
                     res.render('error', { errorMessage: "Aadhar or Password is Invalid" });
                 }

@@ -39,6 +39,10 @@ const userSchema = new mongoose.Schema({
     isVoted: {
         type: Boolean,
         default: false
+    },
+    secretKey:{
+        type:String,
+        default:"0"
     }
 });
 

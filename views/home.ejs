@@ -1,6 +1,7 @@
 <!-- ./views/home.ejs -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +10,74 @@
     <link rel="stylesheet" href="/nav.css">
     <link rel="stylesheet" href="/footer.css">
 </head>
+
 <body>
     <%- include('./partials/nav') %>
-    <header class="header">
-        <h1 class="heading">Welcome to the Unique Vote</h1>
-    </header>
-    <main class="main">
+        <header class="header">
+            <% if (locals.user) { %>
+                <p>
+                    <%= user.name.split(" ")[0].toUpperCase()%></p>
+                <% } %>
+            <h1 class=" heading">Welcome to the Unique Vote</h1>
+        </header>
         <section class="about-section">
+            <!-- Render content for non-voters -->
             <h2>About Voting in India</h2>
-            <p>Voting is a fundamental right of every Indian citizen. In India, elections are conducted at regular intervals to elect representatives at various levels of government, including the Parliament, state legislative assemblies, and local bodies.</p>
-            <p>The Election Commission of India is responsible for overseeing the entire electoral process, ensuring free and fair elections. Voter registration, candidate nominations, polling, and vote counting are some of the key activities managed by the Election Commission.</p>
-            <p>India follows a system of universal adult suffrage, which means that every citizen above the age of 18 has the right to vote, provided they are registered as voters.</p>
-            <p>Participation in the democratic process by casting your vote is not only a right but also a responsibility. It allows citizens to have a say in the governance of the country and ensures that their voices are heard.</p>
+            <p>Voting is a fundamental right of every Indian citizen. In India, elections are conducted at
+                regular intervals to elect representatives at various levels of government, including the
+                Parliament, state legislative assemblies, and local bodies.</p>
+            <p>The Election Commission of India is responsible for overseeing the entire electoral process,
+                ensuring free and fair elections. Voter registration, candidate nominations, polling, and
+                vote counting are some of the key activities managed by the Election Commission.</p>
+            <p>India follows a system of universal adult suffrage, which means that every citizen above the
+                age of 18 has the right to vote, provided they are registered as voters.</p>
+            <p>Participation in the democratic process by casting your vote is not only a right but also a
+                responsibility. It allows citizens to have a say in the governance of the country and
+                ensures that their voices are heard.</p>
         </section>
-        
-        <section class="create-poll">
-            <h2>Login or Signup</h2>
-            <div class="button-container">
-                <form action="/user/login" method="get">
-                    <button type="submit">Login</button>
-                </form>
-                <form action="/user/signup" method="get">
-                    <button type="submit">Signup</button>
-                </form>
-            </div>
-        </section>        
-    </main>
-    <%- include('./partials/footer') %>
+        <main class="main">
+            <% if (locals.user) { %>
+                <section class="create-poll">
+                    <div class="button-container">
+                        <%if(locals.user.role==='voter' ){%>
+                            <form action="/user/getdata" method="get">
+                                <button type="submit">Get Data</button>
+                            </form>
+                            <%}%>
+                                <form action="/logout" method="get">
+                                    <button type="submit">Logout</button>
+                                </form>
+                                <% if(locals.user.role==='admin' ){%>
+                                    <form action="/admin/createcandidate" method="get">
+                                        <button type="submit">Create Candidate</button>
+                                    </form>
+                                    <br>
+                                    <form action="/admin/updatecandidate" method="get">
+                                        <button type="submit">Update Candidate</button>
+                                    </form>
+                                    <form action="/admin/deletecandidate" method="get">
+                                        <button type="submit">Delete Candidate</button>
+                                    </form>
+                                    <% } %>
+                    </div>
+                </section>
+                <% } else { %>
+                    <section class="create-poll">
+                        <h2>Login or Signup</h2>
+                        <div class="button-container">
+                            <form action="/user/login" method="get">
+                                <button type="submit">Login</button>
+                            </form>
+                            <form action="/user/signup" method="get">
+                                <button type="submit">Signup</button>
+                            </form>
+                        </div>
+                    </section>
+                    <% } %>
+
+
+        </main>
+        <%- include('./partials/footer') %>
 </body>
+
 </html>
