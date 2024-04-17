@@ -13,6 +13,12 @@ const candidateSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    image: {
+        type: String
+    },
+    state: {
+        type: String
+    },
     votedby: [
         {
             user: {

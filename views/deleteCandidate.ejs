@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/deleteCandidate.css">
+    <title>Delete Candidate</title>
+</head>
+
+<body>
+    <h2>Delete Candidate</h2>
+    <% if(locals.user && locals.user.role==='admin' ) { %>
+    <form action="/admin/deleteCandidate" method="post">
+        <div>
+            <label for="candidateId">Candidate ID:</label>
+            <input type="text" id="candidateId" name="candidateId" required>
+        </div>
+        <div>
+            <label for="name">Candidate Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <button type="submit">Delete</button>
+    </form>
+    <% } else { %>
+    <h1>Not an Admin</h1>
+    <% } %>
+</body>
+
+</html>

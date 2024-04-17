@@ -1,0 +1,44 @@
+<!-- ./views/admin_home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <link rel="stylesheet" href="/adminHome.css">
+</head>
+
+<body>
+    <% if(locals.user && locals.user.role==='admin' ){%>
+        <header>
+            <h1>Welcome, <%= user.name%></h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/admin/createCandidate">Create Candidate</a></li>
+                <li><a href="/admin/deleteCandidate">Delete Candidate</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="description">
+                <h2>Admin Features</h2>
+                <p>As an admin, you have access to the following features:</p>
+                <ul>
+                    <li>Create a new candidate profile.</li>
+                    <li>Delete candidate profiles.</li>
+                    <li>Logout from the admin panel.</li>
+                </ul>
+            </section>
+        </main>
+        <%}%>
+
+            <footer>
+                <p>&copy; 2024 Voting App. All rights reserved.</p>
+            </footer>
+</body>
+
+</html>

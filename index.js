@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('node:path');
 const auth = require('./middleware/authMiddleware');
+const bodyParser = require('body-parser');
 
 require("dotenv").config();
 
@@ -15,9 +16,9 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(auth('token'));
 app.use(express.static(path.resolve('./public')));
 
