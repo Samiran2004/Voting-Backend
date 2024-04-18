@@ -30,7 +30,7 @@ const signUp = async (req, res) => {
                     name: lowercaseName,
                     age: parseInt(age),
                     email: email,
-                    mobile: Number(phone),
+                    mobile: parseInt(phone),
                     address: address,
                     addharCardNumber: parseInt(aadhar),
                     password: hashedPassword,
