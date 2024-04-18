@@ -30,7 +30,7 @@ const signUp = async (req, res) => {
                     name: lowercaseName,
                     age: parseInt(age),
                     email: email,
-                    mobile: parseInt(phone),
+                    mobile: Number(phone),
                     address: address,
                     addharCardNumber: parseInt(aadhar),
                     password: hashedPassword,
@@ -106,7 +106,7 @@ const login = async (req, res) => {
                         isVoted: check.isVoted
                     };
                     const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    res.cookie('token', token).render('vote');
+                    res.cookie('token', token).redirect('vote');
                 } else {
                     res.render('error', { errorMessage: "Aadhar or Password is Invalid" });
                 }

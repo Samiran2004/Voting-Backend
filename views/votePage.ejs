@@ -1,0 +1,42 @@
+<!-- ./views/votePage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting - Election</title>
+    <link rel="stylesheet" href="/votePage.css">
+    <link rel="stylesheet" href="/nav.css">
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+        <header class="header">
+            <h1 class="heading">Vote for Your Candidate</h1>
+        </header>
+        <main class="main">
+            <section class="voting-section">
+                <div class="container">
+                    <form action="/user/vote" method="post">
+                        <% if (candidateList.length > 0) { %>
+                            <% candidateList.forEach(candidate => { %>
+                                <div class="candidate">
+                                    <input type="radio" id="<%= candidate._id %>" name="candidate" value="<%= candidate._id %>">
+                                    <label for="<%= candidate._id %>">
+                                        <img src="<%= candidate.image %>" alt="<%= candidate.name %>">
+                                        <span class="candidate-name"><%= candidate.name %></span>
+                                    </label>
+                                </div>
+                            <% }); %>
+                        <% } else { %>
+                            <p>No candidates found for your state.</p>
+                        <% } %>
+                        <button type="submit" class="vote-button">Vote</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+</body>
+
+</html>
