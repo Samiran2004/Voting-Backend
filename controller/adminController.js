@@ -37,7 +37,11 @@ const createCandidate = async (req, res) => {
     try {
         if (!name || !age || !party || !state) {
             res.render('error', { errorMessage: "All fields are required" })
-        } else {
+        }
+        if (!req.file) {
+            res.render('error', { errorMessage: "Image file not found" });
+        }
+        else {
             const imageUrl = await cloudinary.uploader.upload(req.file.path);
             const newCandidate = new Candidate({
                 name: name.toLowerCase(),
@@ -50,25 +54,25 @@ const createCandidate = async (req, res) => {
             res.render('adminHome');
         }
     } catch (error) {
-        res.render('error', { errorMessage: "Internal Server Error" })
+        res.render('error', { errorMessage: `Internal Server Error: ${error}` })
     }
 }
 
-const deleteCandidate = async (req,res)=>{
+const deleteCandidate = async (req, res) => {
     try {
-        const {candidateId, name} = req.body;
-        if(!candidateId||!name){
-            res.render('error',{errorMessage:"All fields are required"});
-        }else{
+        const { candidateId, name } = req.body;
+        if (!candidateId || !name) {
+            res.render('error', { errorMessage: "All fields are required" });
+        } else {
             const result = await Candidate.findByIdAndDelete(candidateId);
-            if(!result){
-                res.render('error',{errorMessage:"Error to delete the candidate"})
-            }else{
+            if (!result) {
+                res.render('error', { errorMessage: "Error to delete the candidate" })
+            } else {
                 res.render('deleteSuccess');
             }
         }
     } catch (error) {
-        res.render('error',{errorMessage:"Internal Server Error"})
+        res.render('error', { errorMessage: "Internal Server Error" })
     }
 }
 

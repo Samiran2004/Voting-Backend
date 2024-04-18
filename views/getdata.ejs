@@ -1,0 +1,29 @@
+<!-- ./views/dataPage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Information</title>
+    <link rel="stylesheet" href="/getdata.css">
+    <link rel="stylesheet" href="/nav.css">
+    <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <h1>Candidate Information</h1>
+    <div class="candidates-container">
+        <% candidateData.forEach(candidate => { %>
+            <div class="candidate">
+                <h2><%= candidate.name %></h2>
+                <p>Party: <%= candidate.party %></p>
+                <p>Age: <%= candidate.age %></p>
+                <p>State: <%= candidate.state %></p>
+                <p>Votes Received: <%= candidate.votedByCount %></p>
+                <img src="<%= candidate.image %>" alt="<%= candidate.name %>">
+            </div>
+        <% }); %>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>
